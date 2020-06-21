@@ -22,9 +22,9 @@ void plusOne( vector< int >&data ) //每次加一，按理来说应该是从末�
 	for ( decltype( length ) i = 0 ; i < length ; ++i )
 	{
 		++data[ i ] ;
-		if ( 3 == data[ i ] )
+		if ( 3 == data[ i ] )//满3就进位 当前位置0
 			data[ i ] = 0 ;
-		else
+		else//否则就只加1 并返回
 			return ;
 	}
 }
