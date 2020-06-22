@@ -16,13 +16,13 @@ void calculate( int data[] , int layer )
 	for ( int i = 0 ; i < 9 ; ++i )
 	{
 		data[ layer - 1 ] = i ;
-		if ( !check( data , layer ) ) 
+		if ( !check( data , layer ) ) //如果两个数重复了，则直接丢弃，将当前位置赋给另一个人
 			continue ;
 		if ( layer >= 3 )
 		{
 			if ( (data[ layer-1 ]/3 == data[ layer - 2 ]/3) && (data[ layer - 3 ]/3 == data[ layer - 2 ]/3) )
 				continue ;
-			else if ( 9 == layer )
+			else if ( 9 == layer )//满足条件 计数+1
 			{
 				++cnt ;
 				return ;
@@ -31,7 +31,7 @@ void calculate( int data[] , int layer )
 		calculate( data , layer + 1 ) ;
 	}
 }
-bool check ( int data[] , int layer )
+bool check ( int data[] , int layer )//判断是否重复
 {
 	for( int i = 0 ; i < layer - 1 ; ++i )
 		if ( data[ i ] == data[ layer - 1 ] )
