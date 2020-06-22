@@ -14,28 +14,28 @@ int main()
 void calculate( int data[] , int layer )
 {
 	int tem ;
-	for ( int i = layer - 1 ; i < 9 ; ++i )
+	for ( int i = layer - 1 ; i < 9 ; ++i )//遍历交换，将当前索引下标的数与后面的数依次交换，相比普通版，极大的优化了遍历次数
 	{
-		tem = data[ layer - 1 ] ;
+		tem = data[ layer - 1 ] ;//交换
 		data[ layer - 1 ] = data[ i ] ;
 		data[ i ] = tem ;
-		if ( layer >= 3 )
+		if ( layer >= 3 )//当总数达到3个时开始判断
 		{
-			if ( (data[ layer-1 ]/3 == data[ layer - 2 ]/3) && (data[ layer - 3 ]/3 == data[ layer - 2 ]/3) )
+			if ( (data[ layer-1 ]/3 == data[ layer - 2 ]/3) && (data[ layer - 3 ]/3 == data[ layer - 2 ]/3) )//连续
 			{
 				tem = data[ layer - 1 ] ;
 				data[ layer - 1 ] = data[ i ] ;
 				data[ i ] = tem ;
 				continue ;
 			}
-			else if ( 9 == layer )
+			else if ( 9 == layer )//不连续
 			{
 				++cnt ;
 				return ;
 			}	
 		}
 		calculate( data , layer + 1 ) ;
-		tem = data[ layer - 1 ] ;
+		tem = data[ layer - 1 ] ;//再换回来
 		data[ layer - 1 ] = data[ i ] ;
 		data[ i ] = tem ;
 	}
