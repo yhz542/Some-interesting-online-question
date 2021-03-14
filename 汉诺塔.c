@@ -1,4 +1,4 @@
-//将num个方块从source经由transfer放到target上面
+//将num个方块从source经由transfer放到target上面 MOOC 算法课
 void Hanoi(int num,char source,char transfer,char target)
 {
         //printf("src = %c  trans = %c tar = %c num = %d\n",source,transfer,target,num);
